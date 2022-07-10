@@ -25,6 +25,6 @@ class TestController extends Controller
 
         shell_exec($cmd);
 
-        return 'ok';
+        return 'ok!';
     }
 }
