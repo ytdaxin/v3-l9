@@ -9,7 +9,7 @@ class TestController extends Controller
     public function Test(Request $request)
     {
         $name = 'daxin2022 - testOK';
-        dd($name.' - testIng!!!');
+        return Out($name);
     }
 
     public function _deploy(Request $request)
