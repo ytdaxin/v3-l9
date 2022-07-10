@@ -24,5 +24,7 @@ class TestController extends Controller
         $cmd = "cd $path && git pull";
 
         shell_exec($cmd);
+
+        return 'ok';
     }
 }
