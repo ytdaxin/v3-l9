@@ -11,4 +11,18 @@ class TestController extends Controller
         $name = 'daxin';
         dd($name.' - testIng!!!');
     }
+
+    public function _deploy(Request $request)
+    {
+        $res = $request->all();
+        $path = base_path();
+        $token = 'gaoxueya';
+
+        if (empty($res['token']) || $res['token'] !== $token) {
+            return 'error request';
+        }
+        $cmd = "cd $path && git pull";
+
+        shell_exec($cmd);
+    }
 }

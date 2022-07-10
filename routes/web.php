@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::any('ceshi',[TestController::class,'Test']);
+Route::any('deploy',[TestController::class,'_deploy']);
