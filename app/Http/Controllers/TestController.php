@@ -8,6 +8,7 @@ class TestController extends Controller
 {
     public function Test(Request $request)
     {
-        dd('testIng!!!');
+        $name = 'daxin';
+        dd($name.' - testIng!!!');
     }
 }
