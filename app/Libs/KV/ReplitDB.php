@@ -42,7 +42,8 @@ class ReplitDB
         $stream = [
             'http' => [
                 'method' => $method,
-                'content' => http_build_query($content)
+                'content' => http_build_query($content),
+                'header'  => "Content-Type: application/x-www-form-urlencoded"
             ]
         ];
         return file_get_contents($url, false, stream_context_create($stream));
