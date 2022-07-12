@@ -23,7 +23,15 @@ class TestController extends Controller
         echo PHP_EOL;
 
         echo $db->get_data('name');
-        dd();
+
+        $arr = [
+            'name' => 'Danns Bass',
+            'name1' => 'Danns Bass',
+            'name2' => 'Danns Bass',
+            'name3' => 'Danns Bass',
+        ];
+
+        dd(oToJson($arr));
 
         $name = 'daxin2022 - testOK';
         return Out($name);
