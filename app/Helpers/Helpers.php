@@ -47,7 +47,8 @@ if (! function_exists('se')){
      * @param $data [序列化值]
      * @return string
      */
-    function se($data){
+    function se($data): string
+    {
 
         return serialize($data);
     }
@@ -59,7 +60,8 @@ if (!function_exists('un')){
      * @param $data [反序列化值]
      * @return mixed
      */
-    function un($data){
+    function un($data): mixed
+    {
         return unserialize($data);
     }
 }
