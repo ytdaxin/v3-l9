@@ -12,12 +12,10 @@ class KOOKController extends Controller
     public function _webHookApi(Request $request)
     {
         $Bot = $request->all();
-        Log::channel('mylog')->info('>>> | '.oToJson($Bot));
         $kv = new ReplitDB();
         $dbSn = 'webHook_gxy_sn'; //事件唯一ID
         $sn = $Bot['sn'] ?? 0;
         $oSn = $kv->get_data($dbSn); // 取回 事件唯一ID
-
         $robot = $Bot['robot'] ?? null;
         $data = $Bot['d'] ?? null; // 赋值 $post['d'] 下的成员数据 到 $data
         Log::channel('mylog')->info('>>> | '.oToJson($data));
