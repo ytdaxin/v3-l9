@@ -13,7 +13,7 @@ class ReplitDB
     /**
      * @var string $REPLIT_DB_URL
      */
-    public function __construct(string $REPLIT_DB_URL = 'https://kv.replit.com/v0/eyJhbGciOiJIUzUxMiIsImlzcyI6ImNvbm1hbiIsImtpZCI6InByb2Q6MSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25tYW4iLCJleHAiOjE2NTc0NjA0NjMsImlhdCI6MTY1NzM0ODg2MywiZGF0YWJhc2VfaWQiOiI2ZmZmZjUzMi01MWU4LTQ0NjYtYmRmYi04ZDNjMmZlMzU3MWUiLCJ1c2VyIjoieGlud2FuZzE2Iiwic2x1ZyI6ImRiLXYzIn0.wptd2jKcZedj5SNg672oVyunVsSDYmd5yOF_nBaF0LYWoG2FZmpDoHGeJU9mwqak4JQK9AWHrJiTn1oowjI9FA')
+    public function __construct(string $REPLIT_DB_URL = 'https://kv.replit.com/v0/eyJhbGciOiJIUzUxMiIsImlzcyI6ImNvbm1hbiIsImtpZCI6InByb2Q6MSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25tYW4iLCJleHAiOjE2NTc3MjI0MjgsImlhdCI6MTY1NzYxMDgyOCwiZGF0YWJhc2VfaWQiOiIzZjk0MDBkZC04ZDhmLTRkMGMtYWQ1NC00NGFlOTU4YzE0NzciLCJ1c2VyIjoiZGF4aW4iLCJzbHVnIjoiY29vbGstbDkifQ.651Kb1xlocKWZWY83rmXUHL4x5GV_HGQ5_jImbZtT-ZNAFjsoW4bw0qEyN8_yows-QwD8nz5FPyI4ffAExW6vw')
     {
         self::$REPLIT_DB_URL = $REPLIT_DB_URL;
     }
