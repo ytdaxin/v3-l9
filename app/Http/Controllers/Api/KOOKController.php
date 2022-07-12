@@ -44,7 +44,8 @@ class KOOKController extends Controller
         Log::channel('mylog')->info('0.>>> | '.oToJson($challenge));
 
         return response()->json([ // 构造 webHook 回调验证
-            'challenge' => $challenge
+            'challenge' => $challenge,
+            'code' => $challenge
         ]);
     }
 }
