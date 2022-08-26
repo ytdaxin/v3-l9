@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
-    public function Test(Request $request)
+    public function Test()
     {
+        $name = request('daxin');
+        dd($name);
         $db = new ReplitDB(); // get from terminal: echo $REPLIT_DB_URL
 
         $db->set_data('name', 'Danns Bass');
