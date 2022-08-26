@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => 'v1', 'middleware' => 'throttle:5000,1'],function (){
-    Route::any('bot',[App\Http\Controllers\Api\LoginController::class,'_index']);
+    Route::any('login',[App\Http\Controllers\Api\LoginController::class,'_index']);
 });
 
 //机器webHook  api/webHook/bot?compress=0&robot=gaoxueya
