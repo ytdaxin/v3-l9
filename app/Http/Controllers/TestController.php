@@ -10,7 +10,7 @@ class TestController extends Controller
 {
     public function Test(Request $request)
     {
-        $userInfo = User::all();
+        $userInfo = User::find(1);
         dd($userInfo);
         $name = 'daxin2022 - testOK';
         return Out($name);
