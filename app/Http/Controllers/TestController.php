@@ -10,6 +10,9 @@ class TestController extends Controller
 {
     public function Test()
     {
+
+        phpinfo();exit;
+
         $userInfo = User::find(1);
         dd(R(),$userInfo);
 
