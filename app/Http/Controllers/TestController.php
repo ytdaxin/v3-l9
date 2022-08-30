@@ -11,10 +11,10 @@ class TestController extends Controller
     public function Test()
     {
 
-        phpinfo();exit;
-
+        R()->set('gxyTest_ok',123456789);
         $userInfo = User::find(1);
-        dd(R(),$userInfo);
+
+        dd($userInfo);
 
 
         $name = 'daxin2022 - testOK';
