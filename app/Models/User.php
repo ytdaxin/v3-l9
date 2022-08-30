@@ -10,7 +10,7 @@ class User extends Model
 {
     use HasFactory;
 
-    protected $table = 'gxy_user';
+    protected $table = 'user';
     public $primaryKey = 'id';
     const CREATED_AT = 'add_time';
     const UPDATED_AT = 'up_time';
