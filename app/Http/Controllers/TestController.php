@@ -9,31 +9,6 @@ class TestController extends Controller
 {
     public function Test()
     {
-        $name = request('daxin');
-        dd($name);
-        $db = new ReplitDB(); // get from terminal: echo $REPLIT_DB_URL
-
-        $db->set_data('name', 'Danns Bass');
-        $db->set_data('email', 'dannsbass@gmail.com');
-        $db->set_data('repo', 'https://github.com/dannsbass');
-        $db->set_data('country', 'Indonesia');
-
-        $db->delete_data('country');
-
-        echo $db->get_keys();
-
-        echo PHP_EOL;
-
-        echo $db->get_data('name');
-
-        $arr = [
-            'name' => 'Danns Bass',
-            'name1' => 'Danns Bass',
-            'name2' => 'Danns Bass',
-            'name3' => 'Danns Bass',
-        ];
-
-        dd(oToJson($arr));
 
         $name = 'daxin2022 - testOK';
         return Out($name);
