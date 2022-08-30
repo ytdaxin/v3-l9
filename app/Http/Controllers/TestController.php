@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Libs\KV\ReplitDB;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
     public function Test()
     {
-
+        $userInfo = User::find(1);
+        dd(R(),$userInfo);
         $name = 'daxin2022 - testOK';
         return Out($name);
     }
