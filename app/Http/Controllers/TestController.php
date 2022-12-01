@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Libs\KV\ReplitDB;
 use App\Models\User;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -11,7 +12,19 @@ class TestController extends Controller
     public function Test()
     {
         $name = 'daxin2022 - testOK';
-        return Out($name);
+        $data = $this->getGoods();
+        return Out($data);
+    }
+
+    public function getGoods()
+    {
+        $options = [
+            'base_uri' => 'http://test.app.kacaimao.com/api/v1/',
+//            'verify' => false
+        ];
+        $http = new Client($options);
+        $res = $http->get('goods',['query' => '']);
+        return json_decode($res->getBody(),true);
     }
 
     public function _deploy(Request $request)
