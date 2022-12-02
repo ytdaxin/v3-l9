@@ -11,11 +11,15 @@ class TgSdk
 
     public function __construct(?string $token = null)
     {
-        $this->token = $token ?? '1/MTA1OTQ=/4lSIn3OvJwYJmvEt2KOqwg==';
+        $this->token = $token ?? '5899716144:AAFjbRfl8fNyTXFMK6ujdhMqXIxbL45WYCc';
+        $this->baseUrl = 'https://api.telegram.org/bot' . $this->token . '/';
     }
 
-    protected function get($path,$data)
+    protected function get($path = null, $data = null)
     {
+        if (!$path){
+            $path = '';
+        }
         $http = new Client([
             'base_uri' => $this->baseUrl,
             'headers'   =>  [
@@ -26,9 +30,11 @@ class TgSdk
         return json_decode($res->getBody(),true);
     }
 
-    protected function post($path,$data,$type = null)
+    protected function post($path = null, $data = null, $type = null)
     {
-
+        if (!$path){
+            $path = '';
+        }
         if (!$type){
             $type = 'application/json';
             $data = ['form_params' => $data];

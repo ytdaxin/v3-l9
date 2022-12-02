@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Libs\KV\ReplitDB;
+use App\Libs\TgSDK\Telegram;
 use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -12,8 +13,8 @@ class TestController extends Controller
     public function Test()
     {
         $name = 'daxin2022 - testOK';
-        $data = $this->getGoods();
-        return Out($data);
+        $tg = Telegram::TelegramFun()->getUpdates();
+        return Out($tg);
     }
 
     public function getGoods()
