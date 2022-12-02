@@ -13,7 +13,9 @@ class TestController extends Controller
     public function Test()
     {
         $name = 'daxin2022 - testOK';
-        $tg = Telegram::TelegramFun()->getUpdates();
+        $tg = Telegram::TelegramFun()->setWebhook([
+            'url' => 'https://gxy.leyoui.com/api/webHook/Telegram'
+        ]);
         return Out($tg);
     }
 

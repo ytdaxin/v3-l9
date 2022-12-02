@@ -16,5 +16,6 @@ class TelegramController extends Controller
             return "code:20001,消息格式错误".json_encode($res);
         }
         Log::channel('syslog')->info(oToJson($res));
+        return true;
     }
 }
