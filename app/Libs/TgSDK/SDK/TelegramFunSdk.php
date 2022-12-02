@@ -8,7 +8,7 @@ class TelegramFunSdk extends TgSdk
 {
     public function getUpdates(?array $params = null)
     {
-        $this->get('getUpdates',$params);
+        return $this->get('getUpdates',$params);
     }
 
     public function setWebhook()
