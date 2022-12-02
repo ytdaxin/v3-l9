@@ -42,4 +42,9 @@ class TestController extends Controller
 
         return 'ok!';
     }
+
+    public function SaoMa(Request $request)
+    {
+        return view('saoma');
+    }
 }
