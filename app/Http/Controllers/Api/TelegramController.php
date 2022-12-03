@@ -12,11 +12,10 @@ class TelegramController extends Controller
     public function _pushmsg(Request $request)
     {
         $res = $request->all();
-//        if(!isset($res['update_id'])){
-//            return "code:20001,消息格式错误".json_encode($res);
-//        }
-        $this->_msgSave(json_encode($res));
-        return true;
+        if(!isset($res['update_id'])){
+            return $this->_msgSave("code:20001,消息格式错误".json_encode($res));
+        }
+        return $this->_msgSave(json_encode($res));
     }
 
     public function _msgSave(string $data)
@@ -31,6 +30,6 @@ class TelegramController extends Controller
             'TgData' => $data
         ];
         $res = $http->post('Telegram', ['form_params' => $params]);
-        return;
+        return 'ok';
     }
 }
