@@ -26,7 +26,7 @@ class TestController extends Controller
             'TgData' => $name
         ];
         $res = $http->post('Telegram', ['form_params' => $params]);
-        return $res;
+        return json_decode($res->getBody(),true);
     }
 
     public function getGoods()
