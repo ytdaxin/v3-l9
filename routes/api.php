@@ -24,4 +24,5 @@ Route::group(['prefix' => 'v1', 'middleware' => 'throttle:5000,1'],function (){
 Route::group(['prefix' => 'webHook', 'middleware' => 'throttle:5000,1'],function (){
     Route::any('bot',[App\Http\Controllers\Api\KOOKController::class,'_webHookApi']);
     Route::any('Telegram',[App\Http\Controllers\Api\TelegramController::class,'_pushmsg']);
+    Route::any('TgSendMsg',[App\Http\Controllers\Api\TelegramController::class,'_sendMsg']);
 });

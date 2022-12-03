@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Libs\TgSDK\Telegram;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -31,5 +32,16 @@ class TelegramController extends Controller
         ];
         $res = $http->post('Telegram', ['form_params' => $params]);
         return 'ok';
+    }
+
+    public function _sendMsg(Request $request)
+    {
+        $res = $request->all();
+        $Info = $res['sendInfo'] ?? null;
+        if (empty($Info)) return false;
+        return Telegram::TelegramFun()->sendMessage([
+            'chat_id' => $Info['chat_id'],
+            'text' => $Info['text'],
+        ]);
     }
 }
