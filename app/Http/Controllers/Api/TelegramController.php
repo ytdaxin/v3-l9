@@ -19,7 +19,7 @@ class TelegramController extends Controller
         return $this->_msgSave($res);
     }
 
-    public function _msgSave(string $data)
+    public function _msgSave($data)
     {
         $http = new Client([
             'base_uri' => 'http://bb.ziyouyu.cn/api/v1/',
