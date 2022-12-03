@@ -14,8 +14,10 @@ class TelegramController extends Controller
     {
         $info = $request->all();
         if(!isset($res['update_id'])){
+            Log::channel('mylog')->info("code:20001,消息格式错误".json_encode($info));
             return $this->_msgSave("code:20001,消息格式错误".json_encode($info));
         }
+        Log::channel('mylog')->info(oToJson($info));
         if (isset($info['message']['chat']['type']) && $info['message']['chat']['type'] == 'private'){ //私聊
 
             if (isset($info['message']['text'])){ //文本
