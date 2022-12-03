@@ -72,14 +72,15 @@ class TelegramController extends Controller
         return 'ok';
     }
 
-    public function _sendMsg(Request $request)
+    public function _sendMsg($data)
     {
-        $res = $request->all();
-        $Info = $res['sendInfo'] ?? null;
-        if (!$Info) return false;
+//        $res = $request->all();
+//        $Info = $res['sendInfo'] ?? null;
+//        if (!$Info) return false;
+        $sendInfo = '我收到信息了！';
         return Telegram::TelegramFun()->sendMessage([
-            'chat_id' => $Info['chat_id'],
-            'text' => $Info['text'],
+            'chat_id' => $data['chat_id'],
+            'text' => $data['text'] . $sendInfo,
         ]);
     }
 }
