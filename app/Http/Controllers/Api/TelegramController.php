@@ -12,11 +12,48 @@ class TelegramController extends Controller
 {
     public function _pushmsg(Request $request)
     {
-        $res = $request->all();
+        $info = $request->all();
         if(!isset($res['update_id'])){
-            return $this->_msgSave("code:20001,消息格式错误".json_encode($res));
+            return $this->_msgSave("code:20001,消息格式错误".json_encode($info));
         }
-        return $this->_msgSave($res);
+        if (isset($info['message']['chat']['type']) && $info['message']['chat']['type'] == 'private'){ //私聊
+
+            if (isset($info['message']['text'])){ //文本
+                $this->_sendMsg([
+                    'chat_id' => $info['message']['chat']['id'],
+                    'text' => $info['message']['text'],
+                ]);
+            }else if(isset($info['message']['photo'])){ //图片
+
+            }else{
+                return "未识别私聊";
+            }
+        }else if(isset($info['message']['chat']['type']) && $info['message']['chat']['type'] == 'supergroup'){ //群组
+            if (isset($info['message']['text'])){ //文本
+                $this->_sendMsg([
+                    'chat_id' => $info['message']['chat']['id'],
+                    'text' => $info['message']['text'],
+                ]);
+            }else if(isset($info['sticker'])){ //表情
+
+            }else{
+                return "未识别群组";
+            }
+        }else if(isset($info['channel_post']['chat']['type']) && $info['message']['chat']['type'] == 'channel'){ //频道
+            if (isset($info['channel_post']['text'])){ //文本
+                $this->_sendMsg([
+                    'chat_id' => $info['message']['chat']['id'],
+                    'text' => $info['message']['text'],
+                ]);
+            }else if(isset($info['channel_post']['photo'])){ //图片
+
+            }else{
+                return "未识别频道";
+            }
+        }else{
+            return "未识别频道";
+        }
+        return true;
     }
 
     public function _msgSave($data)

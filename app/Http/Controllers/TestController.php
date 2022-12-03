@@ -14,7 +14,10 @@ class TestController extends Controller
     {
         //https://gxy.leyoui.com/api/webHook/Telegram
         $name = 'daxin2022 - testOK';
-        $tg = Telegram::TelegramFun()->deleteWebhook();
+        $tg = Telegram::TelegramFun()->setWebhook([
+            'url' => 'https://gxy.leyoui.com/api/webHook/Telegram'
+        ]);
+//        $tg = Telegram::TelegramFun()->deleteWebhook();//删除 webHook
         dd($tg);
     }
 
