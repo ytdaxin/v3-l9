@@ -16,7 +16,7 @@ class TelegramController extends Controller
         if(!isset($res['update_id'])){
             return $this->_msgSave("code:20001,消息格式错误".json_encode($res));
         }
-        $this->_msgSave(se($res));
+        $this->_msgSave($res);
         return true;
     }
 
