@@ -39,7 +39,7 @@ class TelegramController extends Controller
     {
         $res = $request->all();
         $Info = $res['sendInfo'] ?? null;
-        if (empty($Info)) return false;
+        if (!$Info) return false;
         return Telegram::TelegramFun()->sendMessage([
             'chat_id' => $Info['chat_id'],
             'text' => $Info['text'],
