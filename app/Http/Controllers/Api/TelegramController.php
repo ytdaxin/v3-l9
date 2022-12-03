@@ -13,7 +13,7 @@ class TelegramController extends Controller
     public function _pushmsg(Request $request)
     {
         $info = $request->all();
-        if(!isset($res['update_id'])){
+        if(!isset($info['update_id'])){
             Log::channel('mylog')->info("code:20001,消息格式错误".json_encode($info));
             return $this->_msgSave("code:20001,消息格式错误".json_encode($info));
         }
