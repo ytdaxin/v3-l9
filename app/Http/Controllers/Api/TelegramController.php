@@ -26,7 +26,8 @@ class TelegramController extends Controller
             'base_uri' => 'http://bb.ziyouyu.cn/api/v1/',
             'headers'   =>  [
                 'content-type'  =>  'application/json'
-            ]
+            ],
+            'verify' => false
         ]);
         $params = [
             'TgData' => $data
