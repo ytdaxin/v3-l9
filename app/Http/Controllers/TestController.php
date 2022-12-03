@@ -12,8 +12,9 @@ class TestController extends Controller
 {
     public function Test()
     {
+        //https://gxy.leyoui.com/api/webHook/Telegram
         $name = 'daxin2022 - testOK';
-        $tg = Telegram::TelegramFun()->getWebhookInfo();
+        $tg = Telegram::TelegramFun()->deleteWebhook();
         dd($tg);
     }
 
