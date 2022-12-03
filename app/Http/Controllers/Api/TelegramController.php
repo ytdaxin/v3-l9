@@ -32,7 +32,7 @@ class TelegramController extends Controller
         $params = [
             'TgData' => $data
         ];
-        $res = $http->post('Telegram', ['form_params' => $params]);
+        $res = $http->get('Telegram', $params);
         return 'ok';
     }
 
