@@ -13,10 +13,20 @@ class TestController extends Controller
     public function Test()
     {
         $name = 'daxin2022 - testOK';
-        $tg = Telegram::TelegramFun()->setWebhook([
-            'url' => 'https://gxy.leyoui.com/api/webHook/Telegram'
+//        $tg = Telegram::TelegramFun()->setWebhook([
+//            'url' => 'https://gxy.leyoui.com/api/webHook/Telegram'
+//        ]);
+        $http = new Client([
+            'base_uri' => 'http://bb.ziyouyu.cn/api/v1/',
+            'headers'   =>  [
+                'content-type'  =>  'application/json'
+            ]
         ]);
-        return Out($tg);
+        $params = [
+            'TgData' => $name
+        ];
+        $res = $http->post('Telegram', ['form_params' => $params]);
+        return Out($res);
     }
 
     public function getGoods()
