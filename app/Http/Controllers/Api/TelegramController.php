@@ -71,7 +71,8 @@ class TelegramController extends Controller
         $params = [
             'TgData' => $data
         ];
-        $http->postAsync('Telegram', ['form_params' => $params]);
+        $res = $http->postAsync('Telegram', ['form_params' => $params]);
+        Log::channel('mylog')->info(json_decode($res->getBody(),true));
     }
 
     public function _send_msg($data)
