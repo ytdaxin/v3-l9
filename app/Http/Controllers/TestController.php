@@ -18,10 +18,12 @@ class TestController extends Controller
             'da' => 'daxin2022',
             'dax' => 'testOK1',
         ];
-//        $tg = Telegram::TelegramFun()->setWebhook([
-//            'url' => 'https://gxy.leyoui.com/api/webHook/Telegram'
-//        ]);
-//        $tg = Telegram::TelegramFun()->deleteWebhook();//删除 webHook
+
+        $tg = Telegram::TelegramFun()->deleteWebhook();//删除 webHook
+
+        $tg = Telegram::TelegramFun()->setWebhook([
+            'url' => 'https://gxy.leyoui.com/api/webHook/Telegram'
+        ]);
 
         $http = new Client([
             'base_uri' => 'http://bb.ziyouyu.cn/api/v1/',

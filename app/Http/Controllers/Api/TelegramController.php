@@ -19,7 +19,7 @@ class TelegramController extends Controller
             return $this->_msgSave("code:20001,消息格式错误".json_encode($info));
         }
         Log::channel('mylog')->info(oToJson($info));
-//        $this->_msgSave($info);
+        $this->_msgSave($info);
         return true;
     }
 
