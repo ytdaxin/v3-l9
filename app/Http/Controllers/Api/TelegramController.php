@@ -87,6 +87,7 @@ class TelegramController extends Controller
     public function _sendMsg(Request $request)
     {
         $res = $request->all();
+        Log::channel('mylog')->info(oToJson($res));
         if (!$res) return false;
         $sendInfo = ' |> 我收到信息了！';
         return Telegram::TelegramFun()->sendMessage([
