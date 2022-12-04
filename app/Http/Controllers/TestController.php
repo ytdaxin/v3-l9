@@ -40,7 +40,7 @@ class TestController extends Controller
 //        } catch (GuzzleException $e) {
 //        }
 
-        dd(123);
+        dd($tg);
     }
 
     public function getGoods()
