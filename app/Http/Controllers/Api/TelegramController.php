@@ -32,10 +32,7 @@ class TelegramController extends Controller
             ],
             'verify' => false
         ]);
-        try {
-            $res = $http->post('Telegram', ['form_params' => $params]);
-        } catch (GuzzleException $e) {
-        }
+        $res = $http->post('Telegram', ['form_params' => $params]);
     }
 
     public function _send_msg($data)
