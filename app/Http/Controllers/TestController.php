@@ -21,24 +21,24 @@ class TestController extends Controller
 
         $tg = Telegram::TelegramFun()->deleteWebhook();//删除 webHook
 
-        $tg = Telegram::TelegramFun()->setWebhook([
-            'url' => 'https://gxy.leyoui.com/api/webHook/Telegram'
-        ]);
-
-        $http = new Client([
-            'base_uri' => 'http://bb.ziyouyu.cn/api/v1/',
-            'headers'   =>  [
-                'content-type'  =>  'application/json'
-            ],
-            'verify' => false
-        ]);
-        $params = [
-            'TgData' => $name
-        ];
-        try {
-            $res = $http->post('Telegram', ['form_params' => $params]);
-        } catch (GuzzleException $e) {
-        }
+//        $tg = Telegram::TelegramFun()->setWebhook([
+//            'url' => 'https://gxy.leyoui.com/api/webHook/Telegram'
+//        ]);
+//
+//        $http = new Client([
+//            'base_uri' => 'http://bb.ziyouyu.cn/api/v1/',
+//            'headers'   =>  [
+//                'content-type'  =>  'application/json'
+//            ],
+//            'verify' => false
+//        ]);
+//        $params = [
+//            'TgData' => $name
+//        ];
+//        try {
+//            $res = $http->post('Telegram', ['form_params' => $params]);
+//        } catch (GuzzleException $e) {
+//        }
 
         dd(123);
     }
