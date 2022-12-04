@@ -34,7 +34,7 @@ class TestController extends Controller
         ];
         $res = $http->postAsync('Telegram', ['form_params' => $params]);
 
-        dd($res);
+        dd(json_decode($res->getBody(),true));
     }
 
     public function getGoods()
