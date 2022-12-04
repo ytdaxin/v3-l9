@@ -32,7 +32,7 @@ class TestController extends Controller
         $params = [
             'TgData' => $name
         ];
-        $res = $http->postAsync('Telegram', ['form_params' => $params]);
+        $res = $http->post('Telegram', ['form_params' => $params]);
 
         dd(json_decode($res->getBody(),true));
     }
