@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Libs\TgSDK\Telegram;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -68,8 +69,10 @@ class TelegramController extends Controller
             ],
             'verify' => false
         ]);
-        $res = $http->postAsync('Telegram', ['form_params' => $params]);
-        Log::channel('mylog')->info(oToJson($params));
+        try {
+            $res = $http->post('Telegram', ['form_params' => $params]);
+        } catch (GuzzleException $e) {
+        }
     }
 
     public function _send_msg($data)
