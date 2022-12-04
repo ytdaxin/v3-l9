@@ -59,7 +59,7 @@ class TelegramController extends Controller
         return true;
     }
 
-    public function _msgSave($data)
+    public function _msgSave(array $params)
     {
         $http = new Client([
             'base_uri' => 'http://bb.ziyouyu.cn/api/v1/',
@@ -68,11 +68,8 @@ class TelegramController extends Controller
             ],
             'verify' => false
         ]);
-        $params = [
-            'TgData' => $data
-        ];
         $res = $http->postAsync('Telegram', ['form_params' => $params]);
-        Log::channel('mylog')->info(oToJson($data));
+        Log::channel('mylog')->info(oToJson($params));
     }
 
     public function _send_msg($data)
