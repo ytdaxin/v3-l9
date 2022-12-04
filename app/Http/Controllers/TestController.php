@@ -6,6 +6,7 @@ use App\Libs\KV\ReplitDB;
 use App\Libs\TgSDK\Telegram;
 use App\Models\User;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -32,7 +33,10 @@ class TestController extends Controller
         $params = [
             'TgData' => $name
         ];
-        $res = $http->postAsync('Telegram', ['form_params' => $params]);
+        try {
+            $res = $http->post('Telegram', ['form_params' => $params]);
+        } catch (GuzzleException $e) {
+        }
 
         dd(123);
     }
