@@ -20,4 +20,5 @@ Route::get('/', function () {
 
 Route::any('ceshi',[TestController::class,'Test']);
 Route::any('saoma',[TestController::class,'SaoMa']);
+Route::any('saoma1',[TestController::class,'SaoMas']);
 Route::any('deploy',[TestController::class,'_deploy'])->name('deploy');

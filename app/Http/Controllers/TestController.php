@@ -52,4 +52,9 @@ class TestController extends Controller
     {
         return view('saoma');
     }
+
+    public function SaoMas(Request $request)
+    {
+        return view('saomas');
+    }
 }
