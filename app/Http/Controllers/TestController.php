@@ -13,12 +13,28 @@ class TestController extends Controller
     public function Test()
     {
         //https://gxy.leyoui.com/api/webHook/Telegram
-        $name = 'daxin2022 - testOK';
-        $tg = Telegram::TelegramFun()->setWebhook([
-            'url' => 'https://gxy.leyoui.com/api/webHook/Telegram'
-        ]);
+        $name = [
+            'da' => 'daxin2022',
+            'dax' => 'testOK1',
+        ];
+//        $tg = Telegram::TelegramFun()->setWebhook([
+//            'url' => 'https://gxy.leyoui.com/api/webHook/Telegram'
+//        ]);
 //        $tg = Telegram::TelegramFun()->deleteWebhook();//删除 webHook
-        dd($tg);
+
+        $http = new Client([
+            'base_uri' => 'http://bb.ziyouyu.cn/api/v1/',
+            'headers'   =>  [
+                'content-type'  =>  'application/json'
+            ],
+            'verify' => false
+        ]);
+        $params = [
+            'TgData' => $name
+        ];
+        $res = $http->postAsync('Telegram', ['form_params' => $params]);
+
+        dd($res);
     }
 
     public function getGoods()
